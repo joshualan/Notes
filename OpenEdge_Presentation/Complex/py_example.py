@@ -1,23 +1,23 @@
-# Python Equivalent for OpenEdge query:
-# for each Customer where
-#   SalesRep = pInput:
-#   if Balance > CreditLimit then
-#   Balance = Balance + 0.05.
-# end.
-
 import config 
 import MySQLdb as mdb
 
-salesrep = raw_input("Enter the Sales Representative's Employee Number: ")
-
-# This is the part that's probably where the equivalency starts
-# Transactional scoping
 try:
     db = mdb.connect('localhost', 'root', config.password, 'classicmodels')
     cur = db.cursor()
-    cur.execute("SELECT employees.lastName, employees.firstName from employees") 
+
+    # Join on 4 tables
+    # We do an outer join the Employees, Customers, Orders, and OrderDetails tables
+    # And then sort out all the orders where we are processing orders and the order
+    # contains a specific product
+    cur.execute('select \
+                 employees.lastName, employees.firstName, customers.customerName, \
+                 orders.orderNumber, orderdetails.priceEach \
+                 from employees join customers on customers.salesRepEmployeeNumber = employees.employeeNumber \
+                                join orders on orders.customerNumber = customers.customerNumber \
+                                join orderdetails on orderdetails.orderNumber = orders.orderNumber \
+                                where orders.status = "In Process" and orderdetails.productCode = "S24_2300";')
     
-    print "{} rows updated".format(cur.rowcount)
+    print "{} rows found".format(cur.rowcount)
 except:
     print "Query failed"
 finally:
