@@ -7,5 +7,3 @@ It's also a good way to make sure that I follow the "No Zero Day" rule, where I 
 Current Book:         Design Patterns by the "Gang of Four"
 
 Current Fun Book:     Dune Messiah by Frank Herbert
-
-Testing as a collaborator.
