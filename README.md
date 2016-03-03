@@ -8,4 +8,4 @@ Current Book:         Design Patterns by the "Gang of Four"
 
 Current Fun Book:     Dune Messiah by Frank Herbert
 
-testing as a collaborator.
+testing as a collaborator. SNAPPY.
