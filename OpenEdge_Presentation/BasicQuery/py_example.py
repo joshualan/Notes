@@ -1,16 +1,19 @@
-# Python Equivalent for OpenEdge query:
-# for each Customer where
-#   SalesRep = pInput:
-#   if Balance > CreditLimit then
-#   Balance = Balance + 0.05.
-# end.
+# Why ABL Example
+# Authors: Bill Wood, Alan Estrada
+# File Name: BasicQuery/py_example.py
+# Version 11.6.1
+# 
+# This is the Python equivalent of this slice of ABL code:
+#
+# FOR EACH Customer WHERE Customer.SalesRep = repname:
+#     IF Balance > CreditLimit THEN Balance = Balance + 5.
+# END.
 
 import config 
 import MySQLdb as mdb
 
 salesrep = raw_input("Enter the Sales Representative's Employee Number: ")
 
-# This is the part that's probably where the equivalency starts
 # Transactional scoping
 try:
     db = mdb.connect('localhost', 'root', config.password, 'classicmodels')

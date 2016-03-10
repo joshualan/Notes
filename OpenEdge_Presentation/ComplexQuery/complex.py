@@ -1,3 +1,22 @@
+# Why ABL Example
+# Authors: Bill Wood, Alan Estrada
+# File Name: ComplexQuery/complex.py
+# Version 11.6.1
+# 
+# This is the Python equivalent of this slice of ABL code:
+#
+# FOR EACH salesrep,
+#    EACH customer OF salesrep,
+#        EACH order OF customer WHERE Order.OrderStatus = "Ordered" OR
+#        (Order.OrderStatus = "Shipped" AND INTERVAL(order.shipdate, dt1, "months") <= 1),
+#            EACH orderline OF order WHERE orderline.itemnum = 14:
+#                DISPLAY 
+#                    SalesRep.Repname FORMAT "x(10)"
+#                    Customer.NAME
+#                    order.ordernum 
+#                    orderline.price.
+# END.
+
 import config 
 import MySQLdb as mdb
 

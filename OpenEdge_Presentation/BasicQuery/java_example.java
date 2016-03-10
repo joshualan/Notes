@@ -1,5 +1,13 @@
-// Based on an amalgamation of http://www.tutorialspoint.com/jdbc/jdbc-sample-code.htm
-// and http://alvinalexander.com/java/java-mysql-update-query-example
+// Why ABL Example
+// Authors: Bill Wood, Alan Estrada
+// File Name: BasicQuery/java_example.java
+// Version 11.6.1
+// 
+// This is the Java equivalent of this slice of ABL code:
+//
+// FOR EACH Customer WHERE Customer.SalesRep = repname:
+//     IF Balance > CreditLimit THEN Balance = Balance + 5.
+// END.
 
 import java.sql.*;
 

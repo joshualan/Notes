@@ -1,3 +1,14 @@
+// Why ABL Example
+// Authors: Bill Wood, Alan Estrada
+// File Name: BasicQuery/dotnet_example.cs
+// Version 11.6.1
+// 
+// This is the C# equivalent of this slice of ABL code:
+//
+// FOR EACH Customer WHERE Customer.SalesRep = repname:
+//     IF Balance > CreditLimit THEN Balance = Balance + 5.
+// END.
+
 using System;
 
 using MySql.Data;
@@ -5,12 +16,6 @@ using MySql.Data.MySqlClient;
 
 // Note that if you DO not give this a data source, MySql namespaces will NOT 
 // be resolved properly.
-
-// Before you run this, remember to do:
-// ALTER TABLE CLASSICMODELS ADD BALANCE VARCHAR(50);
-// update customers set balance = 10000 where creditlimit > 0;
-// update customers set balance = 0 where creditlimit = 0;
-
 namespace ConsoleApplication1
 {
     class Program
